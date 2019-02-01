@@ -17,3 +17,9 @@ type Movie {
     name:String!
     score:Int!
 }
+
+type Mutation {
+    addMovie(name:String!,score:Int!): Movie!
+    deleteMovie(id:Int!):Boolean!
+    updateMovie(id:Int!,name:String!,score:Int!):Movie!
+} 

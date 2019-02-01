@@ -71,7 +71,7 @@ export const getById = id => {
 }
 
 export const getMovieById = id => {
-    const filteredMovies = movies.filter(movie => movie.id === String(id) );
+    const filteredMovies = movies.filter(movie => movie.id === id );
     return filteredMovies[0];
 }
 
@@ -79,11 +79,28 @@ export const getMovieById = id => {
 export const getMovies = () => movies;
 
 export const deleteMovie = id => {
-    const cleanMovies = movies.filter(movie => movie.id !== String(id));
+    const cleanMovies = movies.filter(movie => movie.id !== id);
     if(movies.length>cleanMovies.length){
             movies = cleanMovies;
             return true;
     }else{
         return false;
     }
+}
+
+export const addMovie = (name, score)=>{
+    const newMovie = {
+        id:`${movies.length}`,
+        name,
+        score
+    };
+    movies.push(newMovie);
+    return newMovie;
+}
+
+export const updateMovie = (id,name,score)=>{
+    const currentMovie = movies.filter(movie => movie.id ===id);
+    currentMovie[0].name = name;
+    currentMovie[0].score = score;
+    return currentMovie[0];
 }
