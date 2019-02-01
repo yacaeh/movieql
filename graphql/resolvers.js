@@ -12,13 +12,13 @@ const resolvers = {
     Query: {
         people: () => people,
         person: (_, {id}) => getById(id),
-        movies: () => getMovies(),
+        movies: (_,{limit,rating}) => getMovies(limit,rating),
         movie: (_, {id}) => getMovieById(id)
     },
     Mutation:{
-        addMovie: (_,{name,score})=> addMovie(name, score),
-        deleteMovie:(_,{id})=> deleteMovie(id),
-        updateMovie:(_,{id,name,score})=>updateMovie(id,name,score)
+        // addMovie: (_,{name,score})=> addMovie(name, score),
+        // deleteMovie:(_,{id})=> deleteMovie(id),
+        // updateMovie:(_,{id,name,score})=>updateMovie(id,name,score)
     }
 };
 
